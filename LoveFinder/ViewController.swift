@@ -24,7 +24,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func heightChanged(slider: UISlider) {
@@ -34,12 +33,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func confirm(sender: UIButton) {
+        result.text = name.text
+        self.view.endEditing(true)
     }
     
-    // textFieldShouldEndEditing
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true)
     }
     
     // UITextFieldDelegate
